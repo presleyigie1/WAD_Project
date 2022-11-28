@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7f43c7a2ce.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styling/style.css" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,23 +36,35 @@
 
         </a>
     </div>
+    <!-- Wisdom container for weather card-->
+    <div class = "holder">
+        <div class = "card">
+            <h2><i class="fa-solid fa-location-dot"></i> <span id ="location"></span></h2>
+            <h6 id="weather"></h6>
+            <h4><span id="temp"></span></h4>
+            <img src=""  id="icon">
+        </div>
     </div>
-    <div>
-        <p class="pa">Search by city or town</p>
 
-    </div>
-    <div>
-        <table>
-            <form>
-                <label>Enter city/town name:</label><br>
-                <input type="text" id="search" name="weather">
-                <input type="submit" value="Submit"><br>
-              </form> 
-        </table>
-    </div>
 </body>
+<!-- Wisdom. Script for weather in dublin using openweathermaps-->
 <script>
+    link = "https://api.openweathermap.org/data/2.5/weather?q=Dublin, IE&units=metric&appid=d388cd97c0b0a4480d01683e1bcafb6d";
+    var request = new XMLHttpRequest();
+    request.open('GET', link, true);
+    request.onload = function () {
+        var obj = JSON.parse(this.response);
+        console.log(obj);
+        document.getElementById('weather').innerHTML = obj.weather[0].description;
+        document.getElementById('location').innerHTML = obj.name;
+        document.getElementById('temp').innerHTML = obj.main.temp;
 
+        document.getElementById('icon').src = "http://openweathermap.org/img/w/"+obj.weather[0].icon+".png";
+    }
+    if (request.status == 200) {
+        console.log("error")
+    }
+    request.send();
 </script>
-    link = https://api.open-meteo.com/v1/forecast?latitude=53.33&longitude=-6.25&hourly=temperature_2m,rain,windspeed_80m;
+
 </html>
