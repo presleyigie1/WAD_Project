@@ -14,7 +14,7 @@
     <title>Trip Weather</title>
 </head>
 
-<body>
+<body class="bod">
     <!--Navbar menu -->
     <h1 class="title">Weather forecast for buses</h1>
     <div id="navbar">
@@ -41,9 +41,10 @@
     <div class = "holder">
         <div class = "card">
             <h2><i class="fa-solid fa-location-dot"></i> <span id ="location"></span></h2>
-            <h6 id="weather"></h6>
-            <h4><span id="temp"></span></h4>
+            <h5 id="weather"></h5>
+            <h4><span id="temp"></span><sup>°</sup>C</h4>
             <img src=""  id="icon">
+            <button onclick="window.location.reload()"; class="refresh"><i class="fa-solid fa-arrows-rotate"></i></button>
         </div>
     </div>
 
