@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7f43c7a2ce.js" crossorigin="anonymous"></script>
+    <script src="scripts/weather.js"></script>
     <link rel="stylesheet" href="styling/style.css" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,24 +48,4 @@
     </div>
 
 </body>
-<!-- Wisdom. Script for weather in dublin using openweathermaps-->
-<script>
-    link = "https://api.openweathermap.org/data/2.5/weather?q=Dublin, IE&units=metric&appid=d388cd97c0b0a4480d01683e1bcafb6d";
-    var request = new XMLHttpRequest();
-    request.open('GET', link, true);
-    request.onload = function () {
-        var obj = JSON.parse(this.response);
-        console.log(obj);
-        document.getElementById('weather').innerHTML = obj.weather[0].description;
-        document.getElementById('location').innerHTML = obj.name;
-        document.getElementById('temp').innerHTML = obj.main.temp;
-
-        document.getElementById('icon').src = "http://openweathermap.org/img/w/"+obj.weather[0].icon+".png";
-    }
-    if (request.status == 200) {
-        console.log("error")
-    }
-    request.send();
-</script>
-
 </html>
