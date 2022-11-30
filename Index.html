@@ -4,10 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styling/style.css"/>
+    <script src="home.js"></script>
     <title>Home</title>
 </head>
 <body>
-    <h1>Bus and Train Travel</h1>
-    <p>..</p>
+    <h1>Bus Travel</h1>
+    <div id="navbar">
+        <nav class="underline">
+            <ul class="navigation">
+                <li class="parent">
+                    <a class="link" href="Index.html">Home</a>
+                </li>
+                <li class="parent">
+                    <a class="link"href="Journey.html">Routes</a>
+                </li>
+                <li class="parent">
+                    <a class="link" href="Times.html">Times/TimeTables</a>
+                </li>
+                <li class="parent">
+                    <a class="link" href="Weather.html">Weather</a>
+                </li>   
+          </ul>
+        </nav>
+        </div>
+
+   
+    <p id="Busfare"></p>
+    <script>
+        var fareOne = {
+            "Passenger":"Adult",
+            "Zone":"Red Zone",
+            "Fare":"Monthly",
+            "Price":"150.00"
+        
+        }
+        document.getElementById("Busfare").innerHTML= fareOne.Passenger
+
+    </script>
 </body>
 </html>
