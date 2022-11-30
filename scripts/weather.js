@@ -15,3 +15,10 @@ if (request.status == 200) {
     console.log("error")
 }
 request.send();
+$(document).ready(function(){
+    $("p").click(function(){
+            //actions
+            $(".holder").hide(1000);
+            $("p").append(document.createTextNode(" Now you can imagine it's hot and sunny :D"));
+    });
+  });
