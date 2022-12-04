@@ -58,8 +58,7 @@
 
 <h2>Bus Times for the Express Buses</h2>
     <button onclick = "constructTable('#table')">Display Dublin Express Times</button>
-	<br><br>
-	<table id="table" >
+	<table id="table">
 	</table>
     <script>
     //Code resource and inspiration from:https://www.geeksforgeeks.org/how-to-convert-json-data-to-a-html-table-using-javascript-jquery/  
@@ -86,20 +85,64 @@
              "Daily Times":"4:31am", 
              "Monday-Friday Times":"7:44am",
              "Saturday-Sunday Times":"7:42am",
+             "Holiday Times":"8:15 am"},
+
+             {"Bus Stop":"Merchants Quay",
+             "Daily Times":"4:31am", 
+             "Monday-Friday Times":"7:44am",
+             "Saturday-Sunday Times":"7:42am",
+             "Holiday Times":"8:15 am"},
+
+             {"Bus Stop":"Usher's Quay",
+             "Daily Times":"4:31am", 
+             "Monday-Friday Times":"7:44am",
+             "Saturday-Sunday Times":"7:42am",
+             "Holiday Times":"8:15 am"},
+
+             {"Bus Stop":"Heuston Station",
+             "Daily Times":"4:31am", 
+             "Monday-Friday Times":"7:44am",
+             "Saturday-Sunday Times":"7:42am",
+             "Holiday Times":"8:15 am"},
+
+             {"Bus Stop":"Arran Quay",
+             "Daily Times":"4:31am", 
+             "Monday-Friday Times":"7:44am",
+             "Saturday-Sunday Times":"7:42am",
+             "Holiday Times":"8:15 am"},
+
+             {"Bus Stop":"Ormond Quay Upper",
+             "Daily Times":"4:31am", 
+             "Monday-Friday Times":"7:44am",
+             "Saturday-Sunday Times":"7:42am",
+             "Holiday Times":"8:15 am"},
+
+             {"Bus Stop":"Eden Quay",
+             "Daily Times":"4:31am", 
+             "Monday-Friday Times":"7:44am",
+             "Saturday-Sunday Times":"7:42am",
+             "Holiday Times":"8:15 am"},
+
+             {"Bus Stop":"Custom House Quay",
+             "Daily Times":"4:31am", 
+             "Monday-Friday Times":"7:44am",
+             "Saturday-Sunday Times":"7:42am",
              "Holiday Times":"8:15 am"}
-        ];
-         
-        el_up.innerHTML=JSON.stringify(list[0]) + "<br>"
+        ];   
+              
+        innerHTML=JSON.stringify(list[0]) + "<br>"
                 + JSON.stringify(list[1]) + "<br>"
                 + JSON.stringify(list[2]+"<br>"
-                + JSON.stringify(list[3])
+                + JSON.stringify(list[3] +"<br>")+
+                JSON.stringify(list[4]+"<br>"+
+                JSON.stringify(list[5])+"<br>"+
+                JSON.stringify(list[6]))
                 );  
          
         function constructTable(selector) {
 			
 			// Getting the all column names
-			var cols = Headers(list, selector);
-
+			var cols = Headers(list, selector);//Calling API
 			// Traversing the JSON data
 			for (var i = 0; i < list.length; i++) {
 				var row = $('<tr/>');
@@ -117,11 +160,10 @@
 				$(selector).append(row);
 			}
 		}
-		
 		function Headers(list, selector) {
 			var columns = [];
+            //append rows for the tables
 			var header = $('<tr/>');
-			
 			for (var i = 0; i < list.length; i++) {
 				var row = list[i];
 				
