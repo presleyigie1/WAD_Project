@@ -98,6 +98,7 @@ li a{
     color:white;   
 }
 /*Wisdom. Style for weather page*/
+/*@reference https://www.youtube.com/@DesignWeb*/
 .bod{
     margin: 0;
     padding: 0;
@@ -176,3 +177,13 @@ button.refresh:hover{
       top:500px;
     }
   }
+  
+  /*kevin*/
+table{
+    align-items: "center";
+    border: 1px solid black;
+    width:50%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin:0 auto;
+    font-size: large;
+}

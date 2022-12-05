@@ -8,8 +8,8 @@
     <script src="home.js"></script>
     <title>Home</title>
 </head>
-<body>
-    <h1>Bus Travel</h1>
+<body class = "kevinbody">
+    <h1>Travel Agency Fares</h1>
     <div id="navbar">
         <nav class="underline">
             <ul class="navigation">
@@ -27,19 +27,47 @@
                 </li>   
           </ul>
         </nav>
-        </div>
+    </div>
+    
 
-   
-    <p id="Busfare"></p>
+   <div>
+    <table>
+        <td id="Travelfare"></td>
+        <td id="Travelfare2"></td>
+        <td id="Travelfare3"></td>
+    </table>
+        
+    </div>
+
     <script>
         var fareOne = {
-            "Passenger":"Adult",
-            "Zone":"Red Zone",
-            "Fare":"Monthly",
-            "Price":"150.00"
-        
+            "Passenger": "Passenger Type : Adult",
+            "Zone": " Zone : Red Zone",
+            "Fare":  "Fare : Monthly",
+            "Price": "Price : €150.00"
         }
-        document.getElementById("Busfare").innerHTML= fareOne.Passenger
+        var fareTwo = {
+            "Passenger": "Passenger Type : Child",
+            "Zone": " Zone : Red Zone",
+            "Fare":  "Fare : Monthly",
+            "Price": "Price : €64.00"
+        }
+        var fareThree = {
+            "Passenger": "Passenger Type : Student",
+            "Zone": " Zone : Red Zone",
+            "Fare":  "Fare : Monthly",
+            "Price": "Price : €100.00"
+        }
+  
+        
+
+        document.getElementById("Travelfare").innerHTML= fareOne.Passenger + fareOne.Fare+ fareOne.Zone +fareOne.Price
+        document.getElementById("Travelfare2").innerHTML= fareTwo.Passenger + fareTwo.Fare+ fareTwo.Zone +fareTwo.Price
+        document.getElementById("Travelfare3").innerHTML= fareThree.Passenger + fareThree.Fare+ fareThree.Zone +fareThree.Price
+       
+    
+        
+    
 
     </script>
 </body>

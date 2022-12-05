@@ -1,5 +1,5 @@
 //Wisdom. Script for weather in dublin using openweathermaps
-link = "https://api.openweathermap.org/data/2.5/weather?q=Dublin, IE&units=metric&appid=d388cd97c0b0a4480d01683e1bcafb6d";
+link = "https://api.openweathermap.org/data/2.5/weather?q=Ireland, IE&units=metric&appid=d388cd97c0b0a4480d01683e1bcafb6d";
 var request = new XMLHttpRequest();
 request.open('GET', link, true);
 request.onload = function () {
