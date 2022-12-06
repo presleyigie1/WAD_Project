@@ -16,7 +16,7 @@ if (request.status == 200) {
 }
 request.send();
 $(document).ready(function(){
-    $("p").click(function(){
+    $("p").one("click", function(){
             //actions
             $(".holder").hide(1000);
             $("p").append(document.createTextNode(" Now you can imagine it's hot and sunny :D"));
