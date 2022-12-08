@@ -22,8 +22,22 @@ var directions = new MapboxDirections({
   });
   
   
-  map.addControl(directions, 'top-left');
+map.addControl(directions, 'top-left');
 
+
+const busRoutes = {
+    "r1": "G2 - Liffey Valley SC ↔ Spencer Dock",
+    "r2": "G1 - Red Cow Luas ↔ Spencer Dock",
+    "r3": "C1 - Adamstown Station ↔ Sandymount",
+    "r4": "C3 - Maynooth ↔ Ringsend Road",
+    "r5": "13 - Grange Castle ↔ Harristown ",
+
+}
+document.getElementById("b1").innerHTML= busRoutes.r1
+document.getElementById("b2").innerHTML= busRoutes.r2
+document.getElementById("b3").innerHTML= busRoutes.r3
+document.getElementById("b4").innerHTML= busRoutes.r4
+document.getElementById("b5").innerHTML= busRoutes.r5
 
 
 /*js for google map api (not in use)

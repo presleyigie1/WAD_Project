@@ -155,6 +155,7 @@ button.refresh:hover{
     text-align: center;
     line-height: 40px;
 }
+/*Presley*/
 #route-container{
     border: 1px solid black;
     border-radius: 20px;
@@ -164,19 +165,35 @@ button.refresh:hover{
     top:300px;
     left: 35px;
 }
+/*Presley*/
 #map{
     position: absolute;
-    top: 300px;
+    top: 700px;
     width: 900px;
     height:400px;
 }
-
+/*Presley*/
 @media only screen and (max-width: 1450px) {
     #map {
       position: absolute;
-      top:500px;
+      top:750px;
     }
-  }
+}
+/*Presley*/
+td{
+        border: solid;
+        border-width: 1px ;
+}
+/*Presley*/
+.jsonBus{
+    position: relative;
+}
+/*Presley*/
+.pbody{
+    height: 70vh;
+}
+.pnav
+
   
   /*kevin*/
 table{

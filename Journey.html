@@ -11,7 +11,7 @@
 
     <title> Bus Routes</title>
 </head>
-<body class = >
+<body class = "pbody">
     <h1 class="title">Bus Routes</h1>
     <div id="navbar">
         <nav class="underline">
@@ -23,18 +23,16 @@
                     <a class="link" href="Journey.html">Routes</a>
                 </li>
                 <li class="parent">
-                    <a class="link" href="Times.html">Times/TimeTables</a>
+                    <a class="link" href="Times.html">Bus Times & Flight Timetables</a>
                 </li>
                 <li class="parent">
                     <a class="link" href="Weather.html">Weather</a>
                 </li>
             </ul>
         </nav>
-        </a>
     </div>
-
-    <br>
-    <!--was going to use this to find th eorigin and destination but my google maps api was not working due to PDS2 regulations (not being able to accept €0 transactions) used mapbox instead for the map to find routes
+    
+    <!--was going to use this to find the eorigin and destination but my google maps api was not working due to PDS2 regulations (not being able to accept €0 transactions) used mapbox instead for the map to find routes
     <div id="route-container">
         <div>
             <div>
@@ -52,14 +50,42 @@
     -->
 
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
     <div id="map"></div>
 
-        <!-- async code for api call back -->
-        <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDldayr6aj7TKyFDuS4qzZIvgnYjOxiuMU&callback=initMap"
-      async
-    ></script>
+            <!-- async code for api call back -->
+           <!--<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDldayr6aj7TKyFDuS4qzZIvgnYjOxiuMU&callback=initMap"
+        async
+        ></script>-->
+    </div> 
+
+    <div class = jsonBus>
+        <table>
+            <tr>
+                <th>Bus Routes</th>
+            </tr>
+            <tr>
+                <td id ="b1"></td>
+            </tr>
+            <br>
+            <br>
+            <tr>
+                <td id ="b2"></td>
+            </tr>
+            <br>
+            <tr>
+                <td id ="b3"></td>
+            </tr>
+            <br>
+            <tr>
+                <td id ="b4"></td>
+            </tr>
+            <br>
+            <tr>
+                <td id ="b5"></td>
+            </tr>
+        </table>
     </div>
     <script src = "scripts/journey.js"></script>
 
