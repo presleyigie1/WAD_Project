@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styling/style.css">
+    <script src="https://kit.fontawesome.com/d33853e64f.js" crossorigin="anonymous"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
+
     <title> Bus Routes</title>
 </head>
 <body class = >
@@ -26,7 +30,38 @@
                 </li>
             </ul>
         </nav>
-
         </a>
+    </div>
+
+    <br>
+    <!--was going to use this to find th eorigin and destination but my google maps api was not working due to PDS2 regulations (not being able to accept €0 transactions) used mapbox instead for the map to find routes
+    <div id="route-container">
+        <div>
+            <div>
+                <input type="text" id="from", placeholder="Enter Starting point">
+            </div>
+        </div>
+        <br>
+        <div>
+            <div>
+                <input type="text" id="to", placeholder="Enter Destination ">
+            </div>
+        </div>
+
+    </div>
+    -->
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+    <div id="map"></div>
+
+        <!-- async code for api call back -->
+        <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDldayr6aj7TKyFDuS4qzZIvgnYjOxiuMU&callback=initMap"
+      async
+    ></script>
+    </div>
+    <script src = "scripts/journey.js"></script>
+
 </body>
 </html>
