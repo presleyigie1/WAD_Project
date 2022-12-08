@@ -1,74 +1,252 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styling/style.css"/>
-    <script src="home.js"></script>
-    <title>Home</title>
+    <link rel="stylesheet" href="styling/index.css" />
+    <style>
+        table,
+        th,
+        td {
+            border: solid 1px #ddd;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+
+        th {
+            font-weight: bold;
+
+        }
+    </style>
+
 </head>
-<body class = "kevinbody">
-    <h1>Travel Agency Fares</h1>
-    <div id="navbar">
-        <nav class="underline">
-            <ul class="navigation">
-                <li class="parent">
-                    <a class="link" href="Index.html">Home</a>
-                </li>
-                <li class="parent">
-                    <a class="link"href="Journey.html">Routes</a>
-                </li>
-                <li class="parent">
-                    <a class="link" href="Times.html">Times/TimeTables</a>
-                </li>
-                <li class="parent">
-                    <a class="link" href="Weather.html">Weather</a>
-                </li>   
-          </ul>
-        </nav>
+
+<body>
+
+    <div class="container">
+        <div class="menu">
+            <h1 class="active">BLF(Bus,Luas,Flights) Corporation</h1>
+            <div id="myLinks">
+                <a href="Index.html">Home</a>
+                <a href="Journey.html">Routes</a>
+                <a href="Times.html">Bus Times & Flight Timetables</a>
+                <a href="Weather.html">Weather</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <p1>Welcome to Our fares page</p1>
     </div>
-    
-
-   <div>
-    <table>
-        <td id="Travelfare"></td>
-        <td id="Travelfare2"></td>
-        <td id="Travelfare3"></td>
-    </table>
-        
     </div>
-
-    <script>
-        var fareOne = {
-            "Passenger": "Passenger Type : Adult",
-            "Zone": " Zone : Red Zone",
-            "Fare":  "Fare : Monthly",
-            "Price": "Price : €150.00"
-        }
-        var fareTwo = {
-            "Passenger": "Passenger Type : Child",
-            "Zone": " Zone : Red Zone",
-            "Fare":  "Fare : Monthly",
-            "Price": "Price : €64.00"
-        }
-        var fareThree = {
-            "Passenger": "Passenger Type : Student",
-            "Zone": " Zone : Red Zone",
-            "Fare":  "Fare : Monthly",
-            "Price": "Price : €100.00"
-        }
-  
-        
-
-        document.getElementById("Travelfare").innerHTML= fareOne.Passenger + fareOne.Fare+ fareOne.Zone +fareOne.Price
-        document.getElementById("Travelfare2").innerHTML= fareTwo.Passenger + fareTwo.Fare+ fareTwo.Zone +fareTwo.Price
-        document.getElementById("Travelfare3").innerHTML= fareThree.Passenger + fareThree.Fare+ fareThree.Zone +fareThree.Price
-       
-    
-        
-    
-
-    </script>
+    </div>
+    <input type='button' onclick='tableFromJson()' value='Click to view our Bus fares' />
+    <p id="showData"></p>
 </body>
+
+<script>
+    let tableFromJson = () => {
+        // the json data.
+        const myBooks = [
+            {
+                "Passenger": "Adult",
+                "Zone": "Red Zone",
+                "Bus Fare": "Monthly",
+                "price": "€150.00",
+
+            },
+            {
+                "Passenger": "Child",
+                "Zone": "Red Zone",
+                "Bus Fare": "Monthly",
+                "price": "€64.00",
+
+            },
+            {
+                "Passenger": "Student",
+                "Zone": "Red Zone",
+                "Bus Fare": "Monthly",
+                "price": "€100.00"
+
+            }
+        ]
+
+        // Extract value from table header. 
+        // ('Book ID', 'Book Name', 'Category' and 'Price')
+        let col = [];
+        for (let i = 0; i < myBooks.length; i++) {
+            for (let key in myBooks[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        // Create table.
+        const table = document.createElement("table");
+
+        // Create table header row using the extracted headers above.
+        let tr = table.insertRow(-1);                   // table row.
+
+        for (let i = 0; i < col.length; i++) {
+            let th = document.createElement("th");      // table header.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        // add json data to the table as rows.
+        for (let i = 0; i < myBooks.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (let j = 0; j < col.length; j++) {
+                let tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = myBooks[i][col[j]];
+            }
+        }
+
+        // Now, add the newly created table with json data, to a container.
+        const divShowData = document.getElementById('showData');
+        divShowData.innerHTML = "";
+        divShowData.appendChild(table);
+    }
+</script>
+<input type='button' onclick='tableforflights()' value='Click to view our flight fares' />
+<p id="showData"></p>
+<script>
+    let tableforflights = () => {
+        // the json data.
+        const myBooks = [
+            {
+                "Passenger": "Adult",
+                "Airline": "Ryanair",
+                "Flight": "First class",
+                "Value Fare": "€4000.00",
+
+            },
+            {
+                "Passenger": "Child",
+                "Airline": "Ryanair",
+                "Flight": "First class",
+                "Value Fare": "€2500.00",
+
+            },
+            {
+                "Passenger": "Student",
+                "Airline": "Ryanair",
+                "Flight": "First class",
+                "Value Fare": "€3500.00",
+
+            }
+        ]
+
+
+        let col = [];
+        for (let i = 0; i < myBooks.length; i++) {
+            for (let key in myBooks[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        // Create table.
+        const table = document.createElement("table");
+
+        // Create table header row using the extracted headers above.
+        let tr = table.insertRow(-1);                   // table row.
+
+        for (let i = 0; i < col.length; i++) {
+            let th = document.createElement("th");      // table header.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        // add json data to the table as rows.
+        for (let i = 0; i < myBooks.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (let j = 0; j < col.length; j++) {
+                let tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = myBooks[i][col[j]];
+            }
+        }
+
+        // Now, add the newly created table with json data, to a container.
+        const divShowData = document.getElementById('showData');
+        divShowData.innerHTML = "";
+        divShowData.appendChild(table);
+    }
+</script>
+
+<input type='button' onclick='tableforLuas()' value='Click to view our Luas fares' />
+<p id="showData"></p>
+<script>
+    let tableforLuas = () => {
+        // the json data.
+        const myBooks = [
+            {
+                "Passenger": "Adult",
+                "Zone": "Red Zone",
+                "Luas Fare": "Monthly",
+                "price": "€100.00",
+
+            },
+            {
+                "Passenger": "Child",
+                "Zone": "Red Zone",
+                "Luas Fare": "Monthly",
+                "price": "€50.00",
+
+            },
+            {
+                "Passenger": "Student",
+                "Zone": "Red Zone",
+                "Luas Fare": "Monthly",
+                "price": "€60.00"
+
+            }
+        ]
+
+        // Extract value from table header. 
+        // ('Book ID', 'Book Name', 'Category' and 'Price')
+        let col = [];
+        for (let i = 0; i < myBooks.length; i++) {
+            for (let key in myBooks[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        // Create table.
+        const table = document.createElement("table");
+
+        // Create table header row using the extracted headers above.
+        let tr = table.insertRow(-1);                   // table row.
+
+        for (let i = 0; i < col.length; i++) {
+            let th = document.createElement("th");      // table header.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        // add json data to the table as rows.
+        for (let i = 0; i < myBooks.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (let j = 0; j < col.length; j++) {
+                let tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = myBooks[i][col[j]];
+            }
+        }
+
+        // Now, add the newly created table with json data, to a container.
+        const divShowData = document.getElementById('showData');
+        divShowData.innerHTML = "";
+        divShowData.appendChild(table);
+    }
+</script>
 </html>
