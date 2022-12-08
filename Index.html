@@ -1,74 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styling/style.css"/>
+    <link rel="stylesheet" href="styling/index.css" />
     <script src="home.js"></script>
     <title>Home</title>
 </head>
-<body class = "kevinbody">
-    <h1>Travel Agency Fares</h1>
-    <div id="navbar">
-        <nav class="underline">
-            <ul class="navigation">
-                <li class="parent">
-                    <a class="link" href="Index.html">Home</a>
-                </li>
-                <li class="parent">
-                    <a class="link"href="Journey.html">Routes</a>
-                </li>
-                <li class="parent">
-                    <a class="link" href="Times.html">Times/TimeTables</a>
-                </li>
-                <li class="parent">
-                    <a class="link" href="Weather.html">Weather</a>
-                </li>   
-          </ul>
-        </nav>
-    </div>
-    
 
-   <div>
-    <table>
-        <td id="Travelfare"></td>
-        <td id="Travelfare2"></td>
-        <td id="Travelfare3"></td>
-    </table>
-        
+
+<body class="kevinbody">
+
+    <div class="container">
+        <div class="menu">
+            <h1 class="active">BLF(Bus,Luas,Flights) Corporation</h1>
+            <div id="myLinks">
+                <a href="Index.html">Home</a>
+                <a href="Journey.html">Routes</a>
+                <a href="Times.html">Bus Times & Flight Timetables</a>
+                <a href="Weather.html">Weather</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
     </div>
+    </div>
+    </div>
+
 
     <script>
-        var fareOne = {
-            "Passenger": "Passenger Type : Adult",
-            "Zone": " Zone : Red Zone",
-            "Fare":  "Fare : Monthly",
-            "Price": "Price : €150.00"
-        }
-        var fareTwo = {
-            "Passenger": "Passenger Type : Child",
-            "Zone": " Zone : Red Zone",
-            "Fare":  "Fare : Monthly",
-            "Price": "Price : €64.00"
-        }
-        var fareThree = {
-            "Passenger": "Passenger Type : Student",
-            "Zone": " Zone : Red Zone",
-            "Fare":  "Fare : Monthly",
-            "Price": "Price : €100.00"
-        }
-  
-        
+        var list = [
+            {
+                "Passenger": Adult,
+                "Zone": "redZone",
+                "Fare": "Monthly",
+                "price": "€150.00"
 
-        document.getElementById("Travelfare").innerHTML= fareOne.Passenger + fareOne.Fare+ fareOne.Zone +fareOne.Price
-        document.getElementById("Travelfare2").innerHTML= fareTwo.Passenger + fareTwo.Fare+ fareTwo.Zone +fareTwo.Price
-        document.getElementById("Travelfare3").innerHTML= fareThree.Passenger + fareThree.Fare+ fareThree.Zone +fareThree.Price
-       
-    
-        
-    
+            },
+            {
+                "Passenger": Child,
+                "Zone": "redZone",
+                "Fare": "Monthly",
+                "price": "€64.00"
+
+            },
+            {
+                "Passenger": Student,
+                "Zone": "redZone",
+                "Fare": "Monthly",
+                "price": "€100.00"
+
+            }
+
+
+        ];
+
 
     </script>
 </body>
+
 </html>
