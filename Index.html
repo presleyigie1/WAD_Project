@@ -36,46 +36,52 @@
                 <i class="fa fa-bars"></i>
             </a>
         </div>
-        <p1>Welcome to Our fares page</p1>
     </div>
     </div>
+    </div>
+    <div>
+   <h1 class="heading1">Welcome to Our Fares page</h1>
+   <p1>Our company provides fares on bus, flight and Luas at a cheap and affordable price.</p1> 
     </div>
     <input type='button' onclick='tableFromJson()' value='Click to view our Bus fares' />
-    <p id="showData"></p>
+<p id="showData"></p>
+<input type='button' onclick='tableforflights()' value='Click to view our flight fares' />
+<p id="showData"></p>
+<input type='button' onclick='tableforLuas()' value='Click to view our Luas fares' />
+<p id="showData"></p>
 </body>
 
 <script>
     let tableFromJson = () => {
         // the json data.
-        const myBooks = [
+        const myBlf = [
             {
                 "Passenger": "Adult",
                 "Zone": "Red Zone",
                 "Bus Fare": "Monthly",
-                "price": "€150.00",
+                "Price": "€150.00",
 
             },
             {
                 "Passenger": "Child",
                 "Zone": "Red Zone",
                 "Bus Fare": "Monthly",
-                "price": "€64.00",
+                "Price": "€64.00",
 
             },
             {
                 "Passenger": "Student",
                 "Zone": "Red Zone",
                 "Bus Fare": "Monthly",
-                "price": "€100.00"
+                "Price": "€100.00"
 
             }
         ]
 
         // Extract value from table header. 
-        // ('Book ID', 'Book Name', 'Category' and 'Price')
         let col = [];
-        for (let i = 0; i < myBooks.length; i++) {
-            for (let key in myBooks[i]) {
+        for (let i = 0; i < myBlf.length; i++) {
+            for (let key in myBlf[i]) {
                 if (col.indexOf(key) === -1) {
                     col.push(key);
                 }
@@ -95,13 +101,13 @@
         }
 
         // add json data to the table as rows.
-        for (let i = 0; i < myBooks.length; i++) {
+        for (let i = 0; i < myBlf.length; i++) {
 
             tr = table.insertRow(-1);
 
             for (let j = 0; j < col.length; j++) {
                 let tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = myBooks[i][col[j]];
+                tabCell.innerHTML = myBlf[i][col[j]];
             }
         }
 
@@ -111,12 +117,11 @@
         divShowData.appendChild(table);
     }
 </script>
-<input type='button' onclick='tableforflights()' value='Click to view our flight fares' />
-<p id="showData"></p>
+
 <script>
     let tableforflights = () => {
         // the json data.
-        const myBooks = [
+        const myBlf = [
             {
                 "Passenger": "Adult",
                 "Airline": "Ryanair",
@@ -142,8 +147,8 @@
 
 
         let col = [];
-        for (let i = 0; i < myBooks.length; i++) {
-            for (let key in myBooks[i]) {
+        for (let i = 0; i < myBlf.length; i++) {
+            for (let key in myBlf[i]) {
                 if (col.indexOf(key) === -1) {
                     col.push(key);
                 }
@@ -163,13 +168,13 @@
         }
 
         // add json data to the table as rows.
-        for (let i = 0; i < myBooks.length; i++) {
+        for (let i = 0; i < myBlf.length; i++) {
 
             tr = table.insertRow(-1);
 
             for (let j = 0; j < col.length; j++) {
                 let tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = myBooks[i][col[j]];
+                tabCell.innerHTML = myBlf[i][col[j]];
             }
         }
 
@@ -180,12 +185,10 @@
     }
 </script>
 
-<input type='button' onclick='tableforLuas()' value='Click to view our Luas fares' />
-<p id="showData"></p>
 <script>
     let tableforLuas = () => {
         // the json data.
-        const myBooks = [
+        const myBlf = [
             {
                 "Passenger": "Adult",
                 "Zone": "Red Zone",
@@ -212,8 +215,8 @@
         // Extract value from table header. 
         // ('Book ID', 'Book Name', 'Category' and 'Price')
         let col = [];
-        for (let i = 0; i < myBooks.length; i++) {
-            for (let key in myBooks[i]) {
+        for (let i = 0; i < myBlf.length; i++) {
+            for (let key in myBlf[i]) {
                 if (col.indexOf(key) === -1) {
                     col.push(key);
                 }
@@ -233,13 +236,13 @@
         }
 
         // add json data to the table as rows.
-        for (let i = 0; i < myBooks.length; i++) {
+        for (let i = 0; i < myBlf.length; i++) {
 
             tr = table.insertRow(-1);
 
             for (let j = 0; j < col.length; j++) {
                 let tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = myBooks[i][col[j]];
+                tabCell.innerHTML = myBlf[i][col[j]];
             }
         }
 
@@ -248,5 +251,11 @@
         divShowData.innerHTML = "";
         divShowData.appendChild(table);
     }
+    
+</script>
+<p class="kevintime">Current Date and Time is <span id='date-time'></span>.</p>
+<script>
+var dt = new Date();
+document.getElementById('date-time').innerHTML=dt;
 </script>
 </html>
