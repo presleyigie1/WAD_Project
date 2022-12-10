@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styling/design.css" />
-     <!--Jquery Link-->
+    <!--Jquery Link-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="scripts/times.js"></script>
     <title>Bus/Plane Times</title>
-  </head>
-  <body>
+</head>
+
+<body>
+    <!--Sean-->
     <!--Code Reference:https://www.w3schools.com/howto/howto_js_mobile_navbar.asp-->
     <div class="container">
-        <div class="menu">      
+        <div class="menu">
             <h1 class="active">BLF(Bus,Luas,Flights) Corporation</h1>
             <div id="linksTwo">
                 <a href="Index.html">Home</a>
@@ -25,192 +28,325 @@
             <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
                 <i class="fa fa-bars"></i>
             </a>
-    </div>
-    <h1 class="para">Click on the Navbar to find the pages</h1>
-<div style="padding-left:16px">
-  <h1 class="para">Bus and Flight Times for Dublin</h3>
-  <p class="para">With our company we provide information for travelling flights from Dublin to London Gatwick airport</p>
-  <h1 class="para">Current Time</h3>
-   <p id="digitalClock" class="design" onload="clock()"></p>  
-    <div class="container">
-        <h1 class="pa">We also provide air travel information for travel in Ireland to other countries</h1>
-        <h2>All Flight Details below are obtained from our RyanAir Server and always being updated</h2>
-        <div id="display" id="show" id="hide">
-            <h1 class="para">Time Slot 1</h1>
-            <div id="print"></div>
-            
         </div>
-        <div id ="display">
-            <h1 class="para">Time Slot 2</h1>
-            <div id="print2"></div>
+        <h1 class="para">Click on the Navbar to find the pages</h1>
+        <!--Sean-->
+        <div style="padding-left:16px">
+            <h1 class="para">Bus and Flight Times for Dublin</h3>
+                <p class="para">With our company we provide information for travelling flights from Dublin to London
+                    Gatwick airport</p>
+                <h1 class="para">Current Time</h3>
+                    <p id="digitalClock" class="design" onload="clock()"></p>
+                    <div class="container">
+                        <h1 class="pa">We also provide air travel information for travel in Ireland to other countries
+                        </h1>
+                        <h2>All Flight Details below are obtained from our RyanAir Server and always being updated</h2>
+                        <div id="display" id="show" id="hide">
+                            <h1 class="para">Time Slot 1</h1>
+                            <div id="print"></div>
+
+                        </div>
+                        <div id="display">
+                            <h1 class="para">Time Slot 2</h1>
+                            <div id="print2"></div>
+                        </div>
+                        <div id="display">
+                            <h1 class="para">Time Slot 3</h1>
+                            <div id="print3"></div>
+                        </div>
+                        <ul id="list"></ul>
+                    </div>
         </div>
-        <div id ="display" >
-            <h1 class="para">Time Slot 3</h1>
-            <div id="print3"></div>
+        <div>
         </div>
-        <ul id="list"></ul>
-    </div>
-</div>
-<div>
-</div>
-<h2>Bus Times for the Express Buses</h2>
-	<table id="table">
-	</table>
-    <br>
-    <br>
-    <button onclick = "constructTable('#table')">Display Dublin Express Times</button>
-    <script>
-    //Code resource and inspiration from:https://www.geeksforgeeks.org/how-to-convert-json-data-to-a-html-table-using-javascript-jquery/  
-        var list = [
-            {"Bus Stop":"Dublin Airport",           
-            "Daily Times":"4:05am",
-            "Monday-Friday Times":"7:05am",
-            "Saturday-Sunday Times":"7:35am",
-            "Holiday Times":"8:05"
-            },
-            {"Bus Stop":"George's Quay",
-             "Daily Times":"4:11am", 
-             "Monday-Friday Times":"7:11am",
-             "Saturday-Sunday Times":"7:40am",
-             "Holiday Times":"8:10am"
-            },
-            {"Bus Stop":"Aston Quay",
-             "Daily Times":"4:28am", 
-             "Monday-Friday Times":"7:39am",
-             "Saturday-Sunday Times":"7:40am",
-             "Holiday Times":"8:11am"},
+        <h2>Bus Times for the Express Buses</h2>
+        <table id="table">
+        </table>
+        <br>
+        <br>
+        <button onclick="constructTable('#table')">Display Dublin Express Times</button>
+        <h1>Information on countries to visit</h1>
+        <h2>Our Site also provides information about countries that you would like to travel to out of Ireland</h2>
+        <h3>You can use the searchbar to check information about country </h3>
+        <form id="forms">
+            <input type="text" name="information" id="searchCountry">
+            <input type="button" value="Display Country" name="Search" id="searchBtn"
+                onclick="loadData('https://restcountries.com/v3.1/name/')" />
+        </form>
+        <div id="info-container">
+            <div id="displayData">
+                <img id="flag">
 
-             {"Bus Stop":"Wellington Quay",
-             "Daily Times":"4:31am", 
-             "Monday-Friday Times":"7:44am",
-             "Saturday-Sunday Times":"7:42am",
-             "Holiday Times":"8:15 am"},
+            </div>
+        </div>
+        <script>
+            //Code resource and inspiration from:https://www.geeksforgeeks.org/how-to-convert-json-data-to-a-html-table-using-javascript-jquery/  
+            var list = [{
+                    "Bus Stop": "Dublin Airport",
+                    "Daily Times": "4:05am",
+                    "Monday-Friday Times": "7:05am",
+                    "Saturday-Sunday Times": "7:35am",
+                    "Holiday Times": "8:05"
+                },
+                {
+                    "Bus Stop": "George's Quay",
+                    "Daily Times": "4:11am",
+                    "Monday-Friday Times": "7:11am",
+                    "Saturday-Sunday Times": "7:40am",
+                    "Holiday Times": "8:10am"
+                },
+                {
+                    "Bus Stop": "Aston Quay",
+                    "Daily Times": "4:28am",
+                    "Monday-Friday Times": "7:39am",
+                    "Saturday-Sunday Times": "7:40am",
+                    "Holiday Times": "8:11am"
+                },
 
-             {"Bus Stop":"Merchants Quay",
-             "Daily Times":"4:40am", 
-             "Monday-Friday Times":"7:44am",
-             "Saturday-Sunday Times":"7:42am",
-             "Holiday Times":"8:15 am"},
+                {
+                    "Bus Stop": "Wellington Quay",
+                    "Daily Times": "4:31am",
+                    "Monday-Friday Times": "7:44am",
+                    "Saturday-Sunday Times": "7:42am",
+                    "Holiday Times": "8:15 am"
+                },
 
-             {"Bus Stop":"Usher's Quay",
-             "Daily Times":"5:00am", 
-             "Monday-Friday Times":"7:44am",
-             "Saturday-Sunday Times":"7:42am",
-             "Holiday Times":"8:15 am"},
+                {
+                    "Bus Stop": "Merchants Quay",
+                    "Daily Times": "4:40am",
+                    "Monday-Friday Times": "7:44am",
+                    "Saturday-Sunday Times": "7:42am",
+                    "Holiday Times": "8:15 am"
+                },
 
-             {"Bus Stop":"Heuston Station",
-             "Daily Times":"5:20am", 
-             "Monday-Friday Times":"7:44am",
-             "Saturday-Sunday Times":"7:42am",
-             "Holiday Times":"8:15 am"},
+                {
+                    "Bus Stop": "Usher's Quay",
+                    "Daily Times": "5:00am",
+                    "Monday-Friday Times": "7:44am",
+                    "Saturday-Sunday Times": "7:42am",
+                    "Holiday Times": "8:15 am"
+                },
 
-             {"Bus Stop":"Arran Quay",
-             "Daily Times":"5:30am", 
-             "Monday-Friday Times":"7:44am",
-             "Saturday-Sunday Times":"7:42am",
-             "Holiday Times":"8:15 am"},
+                {
+                    "Bus Stop": "Heuston Station",
+                    "Daily Times": "5:20am",
+                    "Monday-Friday Times": "7:44am",
+                    "Saturday-Sunday Times": "7:42am",
+                    "Holiday Times": "8:15 am"
+                },
 
-             {"Bus Stop":"Ormond Quay Upper",
-             "Daily Times":"6:00am", 
-             "Monday-Friday Times":"7:44am",
-             "Saturday-Sunday Times":"7:42am",
-             "Holiday Times":"8:15 am"},
+                {
+                    "Bus Stop": "Arran Quay",
+                    "Daily Times": "5:30am",
+                    "Monday-Friday Times": "7:44am",
+                    "Saturday-Sunday Times": "7:42am",
+                    "Holiday Times": "8:15 am"
+                },
 
-             {"Bus Stop":"Eden Quay",
-             "Daily Times":"4:31am", 
-             "Monday-Friday Times":"7:44am",
-             "Saturday-Sunday Times":"7:42am",
-             "Holiday Times":"8:15 am"},
+                {
+                    "Bus Stop": "Ormond Quay Upper",
+                    "Daily Times": "6:00am",
+                    "Monday-Friday Times": "7:44am",
+                    "Saturday-Sunday Times": "7:42am",
+                    "Holiday Times": "8:15 am"
+                },
 
-             {"Bus Stop":"Custom House Quay",
-             "Daily Times":"4:31am", 
-             "Monday-Friday Times":"7:44am",
-             "Saturday-Sunday Times":"7:42am",
-             "Holiday Times":"8:15am"}
-        ];   
-        innerHTML=JSON.stringify(list[0]) + "<br>"
-                + JSON.stringify(list[1]) + "<br>"
-                + JSON.stringify(list[2]+"<br>"
-                + JSON.stringify(list[3] +"<br>")+
-                JSON.stringify(list[4]+"<br>"+
-                JSON.stringify(list[5])+"<br>"+
-                JSON.stringify(list[6]))
-                );  
-        function constructTable(selector) {
-			
-			// Getting the all column names
-			var cols = Headers(list, selector);//Calling API
-			// Traversing the JSON data
-			for (var i = 0; i < list.length; i++) {
-				var row = $('<tr/>');
-				for (var colIndex = 0; colIndex < cols.length; colIndex++)
-				{
-					var val = list[i][cols[colIndex]];	
-					// If there is any key, which is matching
-					// with the column name
-					if (val == null) val = "";
-						row.append($('<td/>').html(val));
-				}
-				// Adding each row to the table
-				$(selector).append(row);
-			}
-		}
-		function Headers(list, selector) {
-			var columns = [];
-            //rows
-			var header = $('<tr/>');
-			for (var i = 0; i < list.length; i++) {
-				var row = list[i];
-				
-				for (var k in row) {
-					if ($.inArray(k, columns) == -1) {
-						columns.push(k);
-						header.append($('<th/>').html(k));
-					}
-				}
-			}
-			$(selector).append(header);
-				return columns;
-		}	
-    </script>
-  <script>
-        function clock(){
-            var date = new Date()//date api/package
-            var hours=date.getHours()
-            var minutes=date.getMinutes()
-            var seconds=date.getSeconds()
-            var period="am"
+                {
+                    "Bus Stop": "Eden Quay",
+                    "Daily Times": "4:31am",
+                    "Monday-Friday Times": "7:44am",
+                    "Saturday-Sunday Times": "7:42am",
+                    "Holiday Times": "8:15 am"
+                },
 
-            if(hours ==0){
-                hours = 12
+                {
+                    "Bus Stop": "Custom House Quay",
+                    "Daily Times": "4:31am",
+                    "Monday-Friday Times": "7:44am",
+                    "Saturday-Sunday Times": "7:42am",
+                    "Holiday Times": "8:15am"
+                }
+            ];
+            innerHTML = JSON.stringify(list[0]) + "<br>" +
+                JSON.stringify(list[1]) + "<br>" +
+                JSON.stringify(list[2] + "<br>" +
+                    JSON.stringify(list[3] + "<br>") +
+                    JSON.stringify(list[4] + "<br>" +
+                        JSON.stringify(list[5]) + "<br>" +
+                        JSON.stringify(list[6]))
+                );
+
+            function constructTable(selector) {
+
+                // Getting the all column names
+                var cols = Headers(list, selector); //Calling API
+                // Traversing the JSON data
+                for (var i = 0; i < list.length; i++) {
+                    var row = $('<tr/>');
+                    for (var colIndex = 0; colIndex < cols.length; colIndex++) {
+                        var val = list[i][cols[colIndex]];
+                        // If there is any key, which is matching
+                        // with the column name
+                        if (val == null) val = "";
+                        row.append($('<td/>').html(val));
+                    }
+                    // Adding each row to the table
+                    $(selector).append(row);
+                }
             }
 
-            if(hours >12){
-                hours=hours-12
-                period = "pm"
-            }
-//? calling a functions or object property in javascript
-            hours=(hours <10) ? "0"+ hours:hours
-            minutes=(minutes <10) ? "0"+minutes:minutes
-            seconds=(seconds <10) ? "0"+seconds:seconds
-            let time = hours+":"+minutes+":"+seconds+" "+period
-            document.getElementById("digitalClock").innerHTML = time
-            document.getElementById("digitalClock").textContent =time
+            function Headers(list, selector) {
+                var columns = [];
+                //rows
+                var header = $('<tr/>');
+                for (var i = 0; i < list.length; i++) {
+                    var row = list[i];
 
-            setTimeout(clock,1000)
-        }
-        clock()
-    </script>
-    <script>
-        function hamburgerMenu() {
-            var menu = document.getElementById("linksTwo");
-            if (menu.style.display === "block") {
-                menu.style.display = "none";
-                } 
-                else {
+                    for (var k in row) {
+                        if ($.inArray(k, columns) == -1) {
+                            columns.push(k);
+                            header.append($('<th/>').html(k));
+                        }
+                    }
+                }
+                $(selector).append(header);
+                return columns;
+            }
+        </script>
+        <script>
+            function clock() {
+                var date = new Date() //date api/package
+                var hours = date.getHours()
+                var minutes = date.getMinutes()
+                var seconds = date.getSeconds()
+                var period = "am"
+
+                if (hours == 0) {
+                    hours = 12
+                }
+
+                if (hours > 12) {
+                    hours = hours - 12
+                    period = "pm"
+                }
+                //? calling a functions or object property in javascript
+                hours = (hours < 10) ? "0" + hours : hours
+                minutes = (minutes < 10) ? "0" + minutes : minutes
+                seconds = (seconds < 10) ? "0" + seconds : seconds
+                let time = hours + ":" + minutes + ":" + seconds + " " + period
+                document.getElementById("digitalClock").innerHTML = time
+                document.getElementById("digitalClock").textContent = time
+
+                setTimeout(clock, 1000)
+            }
+            clock()
+        </script>
+        <script>
+            function hamburgerMenu() {
+                var menu = document.getElementById("linksTwo");
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                } else {
                     menu.style.display = "block";
+                }
             }
-        }
-    </script>
-    </body>
+        </script>
+        <script>
+            //Sean
+            async function loadData(url) {
+
+                var response = await fetch(url + document.getElementById("searchCountry").value);
+                var data = await response.json();
+                console.log(data)
+                if (response == "") {
+                    alert("Empty,please enter a country")
+                } else {
+                    var displayText = document.getElementById("displayData")
+                    const headrOne = document.createElement("h3")
+                    const nameHead = document.createTextNode("Name of the country:")
+                    const headrTwo = document.createElement("h3")
+                    const capitalHead = document.createTextNode("Capital City:")
+                    const headrThree = document.createElement("h3")
+                    const contHead = document.createTextNode("Continent:")
+                    const headrFour = document.createElement("h3")
+                    const timeHead = document.createTextNode("Timezone:")
+                    const headrFive = document.createElement("h3")
+                    const flagHead = document.createTextNode("Flag:")
+                    const headrSix = document.createElement("h3")
+                    const currencyHead = document.createTextNode("Currency Used:")
+                    const headrSeven = document.createElement("h3")
+                    const headrEight = document.createElement("h3")
+                    const lanHead = document.createTextNode("Language:")
+                    const headrNine = document.createElement("h3")
+                    const popHead = document.createTextNode("Population:")
+
+                    for (i = 0; i < data.length; i++) {
+                        var countryName = document.createTextNode(data[i].altSpellings)
+                        const paraName = document.createElement("p")
+                        var capitalCity = document.createTextNode(data[i].capital)
+                        const paraCapital = document.createElement("p")
+                        const contintent = document.createTextNode(data[i].region)
+                        const paraContinent = document.createElement("p")
+                        const timezone = document.createTextNode(data[i].timezones)
+                        const paraZone = document.createElement("p")
+                        const languages = document.createTextNode(Object.values(data[i].languages))
+                        const paraLan = document.createElement("p")
+                        const paraCurrency = document.createElement("p")
+                        const currency = document.createTextNode(data[i].currencies[i])
+                        const paraFlag = document.createElement("img")
+                        flag.src = data[i].flags.png
+                        const paraPopulation = document.createElement("p")
+                        const population = document.createTextNode(data[i].population)
+                        //Name of the country
+                        displayText.appendChild(headrOne)
+                        headrOne.appendChild(nameHead)
+                        displayText.appendChild(paraName)
+                        paraName.appendChild(countryName)
+                        //Name of the capital
+                        displayText.appendChild(headrTwo)
+                        headrTwo.appendChild(capitalHead)
+                        displayText.appendChild(paraCapital)
+                        paraCapital.appendChild(capitalCity)
+                        //Name of continent
+                        displayText.appendChild(headrThree)
+                        headrThree.appendChild(contHead)
+                        displayText.appendChild(paraContinent)
+                        paraContinent.appendChild(contintent)
+                        //timezone 
+                        displayText.appendChild(headrFour)
+                        headrFour.appendChild(timeHead)
+                        displayText.appendChild(paraZone)
+                        paraZone.appendChild(timezone)
+                        //Languages
+                        displayText.appendChild(headrEight)
+                        headrEight.appendChild(lanHead)
+                        displayText.appendChild(paraLan)
+                        paraLan.appendChild(languages)
+                        //currencies
+                        displayText.appendChild(headrFive)
+                        headrFive.appendChild(currencyHead)
+                        displayText.appendChild(paraCurrency)
+                        paraCurrency.appendChild(currency)
+                        //Population
+                        displayText.appendChild(headrNine)
+                        headrNine.appendChild(popHead)
+                        displayText.appendChild(paraPopulation)
+                        paraPopulation.appendChild(population)
+                        //Flag
+                        displayText.appendChild(headrSix)
+                        headrSix.appendChild(flagHead)
+                        displayText.appendChild(paraFlag)
+                        paraFlag.appendChild(flag)
+
+                    }
+                }
+
+
+
+
+                //document.getElementById("myData").innerHTML
+            }
+        </script>
+</body>
+
 </html>
