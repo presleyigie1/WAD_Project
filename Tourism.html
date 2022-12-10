@@ -1,0 +1,35 @@
+<!--Sean-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tourism recommendations</title>
+    <link rel="stylesheet" href="styling/tourism.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Tourism</h1>
+    <h2>Our Site also provides information about countries that you would like to travel to out of Ireland</h2>
+    <h3>You can use the searchbar to check information about country </h3>
+    <form id="forms">
+        <input type="text" name="information" id="searchCountry">
+        <input type="button" value="Display Country" name="Search" id="searchBtn" onclick="loadData('https://restcountries.com/v3.1/name/')"/>
+    </form>
+    <div id="info-container">
+        <div id="displayData">
+            <img id="flag">
+
+        </div>
+    </div>
+    </div>
+
+    <script>
+        
+    </script>
+</body>
+
+</html>
