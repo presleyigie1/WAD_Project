@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--Sean-->
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,7 +27,7 @@
                 <a href="Times.html">Bus Times & Flight Timetables</a>
                 <a href="Weather.html">Weather</a>
                 <a href="Tourism.html">Tourism Info</a>
-                
+
             </div>
             <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
                 <i class="fa fa-bars"></i>
@@ -68,13 +69,15 @@
         </table>
         <br>
         <br>
-        <button class="button3"onclick="constructTable('#table')">Display Dublin Express Times</button>
+        <button class="button3" onclick="constructTable('#table')">Display Dublin Express Times</button>
         <h1>Information on countries to visit</h1>
         <h2>Our Site also provides information about countries that you would like to travel to out of Ireland</h2>
-        <h3>You can use the searchbar to check information about a country,the information should display below the buttons </h3>
+        <h3>You can use the searchbar to check information about a country,the information should display below the
+            buttons </h3>
         <form id="forms">
             <input type="text" name="information" id="searchCountry">
-            <input class="button1" type="button" value="Display Country" name="Search" id="searchBtn" onclick="loadData('https://restcountries.com/v3.1/name/')" />
+            <input class="button1" type="button" value="Display Country" name="Search" id="searchBtn"
+                onclick="loadData('https://restcountries.com/v3.1/name/')" />
         </form>
         <br>
         <button class="button2">FadeIn/Out Country Information</button><br><br>
@@ -119,57 +122,57 @@
                 {
                     "Bus Stop": "Merchants Quay",
                     "Daily Times": "4:40am",
-                    "Monday-Friday Times": "7:44am",
-                    "Saturday-Sunday Times": "7:42am",
-                    "Holiday Times": "8:15 am"
+                    "Monday-Friday Times": "8:00am",
+                    "Saturday-Sunday Times": "8:15am",
+                    "Holiday Times": "8:30 am"
                 },
 
                 {
                     "Bus Stop": "Usher's Quay",
                     "Daily Times": "5:00am",
-                    "Monday-Friday Times": "7:44am",
-                    "Saturday-Sunday Times": "7:42am",
-                    "Holiday Times": "8:15 am"
+                    "Monday-Friday Times": "8:15am",
+                    "Saturday-Sunday Times": "8:20am",
+                    "Holiday Times": "9:00 am"
                 },
 
                 {
                     "Bus Stop": "Heuston Station",
                     "Daily Times": "5:20am",
-                    "Monday-Friday Times": "7:44am",
-                    "Saturday-Sunday Times": "7:42am",
-                    "Holiday Times": "8:15 am"
+                    "Monday-Friday Times": "8:30am",
+                    "Saturday-Sunday Times": "8:40am",
+                    "Holiday Times": "9:30 am"
                 },
 
                 {
                     "Bus Stop": "Arran Quay",
                     "Daily Times": "5:30am",
-                    "Monday-Friday Times": "7:44am",
-                    "Saturday-Sunday Times": "7:42am",
+                    "Monday-Friday Times": "8:45am",
+                    "Saturday-Sunday Times": "9:00am",
                     "Holiday Times": "8:15 am"
                 },
 
                 {
                     "Bus Stop": "Ormond Quay Upper",
                     "Daily Times": "6:00am",
-                    "Monday-Friday Times": "7:44am",
-                    "Saturday-Sunday Times": "7:42am",
-                    "Holiday Times": "8:15 am"
+                    "Monday-Friday Times": "9:00am",
+                    "Saturday-Sunday Times": "9:15am",
+                    "Holiday Times": "8:30 am"
                 },
 
                 {
                     "Bus Stop": "Eden Quay",
-                    "Daily Times": "4:31am",
-                    "Monday-Friday Times": "7:44am",
-                    "Saturday-Sunday Times": "7:42am",
-                    "Holiday Times": "8:15 am"
+                    "Daily Times": "6:15am",
+                    "Monday-Friday Times": "9:15am",
+                    "Saturday-Sunday Times": "9:23am",
+                    "Holiday Times": "8:45 am"
                 },
 
                 {
                     "Bus Stop": "Custom House Quay",
-                    "Daily Times": "4:31am",
-                    "Monday-Friday Times": "7:44am",
-                    "Saturday-Sunday Times": "7:42am",
-                    "Holiday Times": "8:15am"
+                    "Daily Times": "6:31am",
+                    "Monday-Friday Times": "9:44am",
+                    "Saturday-Sunday Times": "9:42am",
+                    "Holiday Times": "9:00am"
                 }
             ];
             innerHTML = JSON.stringify(list[0]) + "<br>" +
@@ -265,7 +268,6 @@
             $("button").click(function () {
                 $("#displayData").fadeToggle("slow");
             });
-            
         </script>
         <script>
             //Sean
@@ -295,7 +297,7 @@
                     const headrNine = document.createElement("h3")
                     const popHead = document.createTextNode("Population:")
                     const headrTen = document.createElement("h3")
-                    const regHead= document.createTextNode("Region:")
+                    const regHead = document.createTextNode("Region:")
 
                     for (i = 0; i < data.length; i++) {
                         var countryName = document.createTextNode(data[i].altSpellings)
@@ -313,7 +315,7 @@
                         const paraCurrency = document.createElement("p")
                         const currency = document.createTextNode(Object.values(data[i].currencies))
                         const paraFlag = document.createElement("img")
-                        let flagInfo =data[i].flags.png
+                        let flagInfo = data[i].flags.png
                         const paraPopulation = document.createElement("p")
                         const population = document.createTextNode(data[i].population)
                         //Name of the country
