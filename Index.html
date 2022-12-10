@@ -159,10 +159,10 @@
         const table = document.createElement("table");
 
         // Create table header row using the extracted headers above.
-        let tr = table.insertRow(-1);                   // table row.
+        let tr = table.insertRow(-1);                 
 
         for (let i = 0; i < col.length; i++) {
-            let th = document.createElement("th");      // table header.
+            let th = document.createElement("th");      
             th.innerHTML = col[i];
             tr.appendChild(th);
         }
@@ -178,7 +178,7 @@
             }
         }
 
-        // Now, add the newly created table with json data, to a container.
+        
         const divShowData = document.getElementById('showData');
         divShowData.innerHTML = "";
         divShowData.appendChild(table);
@@ -212,8 +212,7 @@
             }
         ]
 
-        // Extract value from table header. 
-        // ('Book ID', 'Book Name', 'Category' and 'Price')
+      
         let col = [];
         for (let i = 0; i < myBlf.length; i++) {
             for (let key in myBlf[i]) {
@@ -227,10 +226,10 @@
         const table = document.createElement("table");
 
         // Create table header row using the extracted headers above.
-        let tr = table.insertRow(-1);                   // table row.
+        let tr = table.insertRow(-1);                   
 
         for (let i = 0; i < col.length; i++) {
-            let th = document.createElement("th");      // table header.
+            let th = document.createElement("th");    
             th.innerHTML = col[i];
             tr.appendChild(th);
         }
@@ -246,7 +245,7 @@
             }
         }
 
-        // Now, add the newly created table with json data, to a container.
+    
         const divShowData = document.getElementById('showData');
         divShowData.innerHTML = "";
         divShowData.appendChild(table);
