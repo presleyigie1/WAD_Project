@@ -1,3 +1,4 @@
+<!--kevin-->
 <!DOCTYPE html>
 <html>
 
@@ -31,6 +32,7 @@
                 <a href="Journey.html">Routes</a>
                 <a href="Times.html">Bus Times & Flight Timetables</a>
                 <a href="Weather.html">Weather</a>
+                <a href="Tourism.html">Tourism</a>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
                 <i class="fa fa-bars"></i>
@@ -41,7 +43,12 @@
     </div>
     <div>
    <h1 class="heading1">Welcome to Our Fares page</h1>
-   <p1>Our company provides fares on bus, flight and Luas at a cheap and affordable price.</p1> 
+   <p1 class="myp1tag">Our company provides fares on bus, flight and Luas at a cheap and affordable price.</p1> 
+   <br>
+   <br>
+   <br>
+   <h2 class="heading2">How our fares work!</h2>
+   <p2 class="myp2tag">Our buttons below show fares for the Bus, flight and the luas, with one click you can view these prices.</p2>
     </div>
     <input type='button' onclick='tableFromJson()' value='Click to view our Bus fares' />
 <p id="showData"></p>
@@ -50,7 +57,7 @@
 <input type='button' onclick='tableforLuas()' value='Click to view our Luas fares' />
 <p id="showData"></p>
 </body>
-
+<!-- code reference https://www.encodedna.com/javascript/populate-json-data-to-html-table-using-javascript.htm-->
 <script>
     let tableFromJson = () => {
         // the json data.
@@ -92,10 +99,10 @@
         const table = document.createElement("table");
 
         // Create table header row using the extracted headers above.
-        let tr = table.insertRow(-1);                   // table row.
+        let tr = table.insertRow(-1);                 
 
         for (let i = 0; i < col.length; i++) {
-            let th = document.createElement("th");      // table header.
+            let th = document.createElement("th");      
             th.innerHTML = col[i];
             tr.appendChild(th);
         }

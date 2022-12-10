@@ -69,13 +69,7 @@ td {
     padding: 2px 3px;
     text-align: center;
 }
-
-
-
-
-
-
-
+/*kevin*/
 .container{
     margin: auto;
 
@@ -88,10 +82,24 @@ td {
 }
 
 .tableforflights{
-    width: 100%;
+    width: 200%;
 
 }
 .kevintime{
-    color:orangered
+    color:orangered;
     
+}
+.myp1tag{
+    color:orangered;
+    font-size: 20px;
+
+    
+}
+.myp2tag{
+    color:orangered;
+    font-size: 20px;
+}
+.heading2{
+    color:orangered;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
