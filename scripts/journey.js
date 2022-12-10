@@ -30,8 +30,7 @@ const busRoutes = {
     "r2": "G1 - Red Cow Luas ↔ Spencer Dock",
     "r3": "C1 - Adamstown Station ↔ Sandymount",
     "r4": "C3 - Maynooth ↔ Ringsend Road",
-    "r5": "13 - Grange Castle ↔ Harristown ",
-
+    "r5": "13 - Grange Castle ↔ Harristown "
 }
 document.getElementById("b1").innerHTML= busRoutes.r1
 document.getElementById("b2").innerHTML= busRoutes.r2

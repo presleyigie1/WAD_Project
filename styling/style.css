@@ -179,11 +179,7 @@ button.refresh:hover{
       top:750px;
     }
 }
-/*Presley*/
-td{
-        border: solid;
-        border-width: 1px ;
-}
+
 /*Presley*/
 .jsonBus{
     position: relative;
@@ -192,7 +188,17 @@ td{
 .pbody{
     height: 70vh;
 }
-.pnav
+/*presley*/
+.ptable{
+    font-size: 1.4em;
+    min-width: 600px;
+    box-shadow: 6px 8px  orangered;
+}
+
+.ptable thead tr{
+    text-align: left;
+    background-color: #888686;
+}
 
   
   /*kevin*/
