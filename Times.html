@@ -1,6 +1,7 @@
+<!--Sean-->
 <!DOCTYPE html>
 <html lang="en">
-
+<!--Sean-->
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -24,11 +25,14 @@
                 <a href="Journey.html">Routes</a>
                 <a href="Times.html">Bus Times & Flight Timetables</a>
                 <a href="Weather.html">Weather</a>
+                <a href="Tourism.html">Tourism Info</a>
+                
             </div>
             <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
                 <i class="fa fa-bars"></i>
             </a>
         </div>
+        <h6 class="para">Click the orange part above this text to open Navbar</h6>
         <h1 class="para">Click on the Navbar to find the pages</h1>
         <!--Sean-->
         <div style="padding-left:16px">
@@ -67,12 +71,12 @@
         <button onclick="constructTable('#table')">Display Dublin Express Times</button>
         <h1>Information on countries to visit</h1>
         <h2>Our Site also provides information about countries that you would like to travel to out of Ireland</h2>
-        <h3>You can use the searchbar to check information about country </h3>
+        <h3>You can use the searchbar to check information about a country </h3>
         <form id="forms">
             <input type="text" name="information" id="searchCountry">
-            <input type="button" value="Display Country" name="Search" id="searchBtn"
-                onclick="loadData('https://restcountries.com/v3.1/name/')" />
+            <input class="button1" type="button" value="Display Country" name="Search" id="searchBtn" onclick="loadData('https://restcountries.com/v3.1/name/')" />
         </form>
+        <button class="button2">Fade Country Information</button><br><br>
         <div id="info-container">
             <div id="displayData">
                 <img id="flag">
@@ -80,7 +84,7 @@
             </div>
         </div>
         <script>
-            //Code resource and inspiration from:https://www.geeksforgeeks.org/how-to-convert-json-data-to-a-html-table-using-javascript-jquery/  
+            //Code reference/resource and inspiration from:https://www.geeksforgeeks.org/how-to-convert-json-data-to-a-html-table-using-javascript-jquery/  
             var list = [{
                     "Bus Stop": "Dublin Airport",
                     "Daily Times": "4:05am",
@@ -250,11 +254,21 @@
                     menu.style.display = "block";
                 }
             }
+            //highlight sections of the page
+            $("p").hover(function () {
+                $(this).css("background-color", "yellow");
+            }, function () {
+                $(this).css("background-color", "aqua");
+            })
+            //fade countries out
+            $("button").click(function () {
+                $("#displayData").fadeOut("slow");
+            });
+            
         </script>
         <script>
             //Sean
             async function loadData(url) {
-
                 var response = await fetch(url + document.getElementById("searchCountry").value);
                 var data = await response.json();
                 console.log(data)
@@ -340,10 +354,6 @@
 
                     }
                 }
-
-
-
-
                 //document.getElementById("myData").innerHTML
             }
         </script>

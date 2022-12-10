@@ -1,4 +1,7 @@
 <!--Sean-->
+<!--Wisdom-->
+<!--Kevin-->
+<!--Presley-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,16 +10,104 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tourism recommendations</title>
+
     <link rel="stylesheet" href="styling/tourism.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 
 <body>
+    <div id="navbar">
+        <h1 class="active">BLF(Bus,Luas,Flights) Corporation</h1>
+        <nav class="underline">
+            <ul class="navigation">
+                <li class="parent">
+                    <a class="link" href="Index.html">Home</a>
+                </li>
+                <li class="parent">
+                    <a class="link" href="Journey.html">Routes</a>
+                </li>
+                <li class="parent">
+                    <a class="link" href="Times.html">Times/TimeTables</a>
+                </li>
+                <li class="parent">
+                    <a class="link" href="Weather.html">Weather</a>
+                </li>
+                <li class="parent">
+                    <a class="link" href="Tourism.html">Tourism Info</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
     
+
+    <h1>Tourism and internmational Travel that BLF provides</h1>
+    <h2>This page provides further information about how international travel worldwide from Ireland to other countries
+    </h2>
+    <div id="tourism">
+
     </div>
 
     <script>
-        
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '608f2d2638msh44841900d983c3ep1db646jsn526b4be970c8',
+                'X-RapidAPI-Host': 'macro-travel-tourism-and-hospitality.p.rapidapi.com'
+            }
+        };
+
+        fetch('https://macro-travel-tourism-and-hospitality.p.rapidapi.com/25/variable', options)
+            .then(response => response.json())
+            .then(response => {
+                console.log(response)
+                //create headers
+                let fetchTourism = document.getElementById("tourism")
+                let header = document.createElement("h2")
+                let headerText = document.createTextNode("Last Update To Section")
+                let headerText2 = document.createTextNode("Licened and published by:")
+                let header2 = document.createElement("h2")
+                let header3 = document.createElement("h1")
+                let header4 = document.createElement("h3")
+                let headerText3 = document.createTextNode("This information is covered throughout:")
+                let header5 = document.createElement("h3")
+
+                //information
+                let paragragh = document.createElement("p")
+                let subject = document.createTextNode(response[0].topic.name)
+                let descriptionT = document.createTextNode(response[0].description)
+                let docUpdated = document.createTextNode(response[0].last_update)
+                let paragragh2 = document.createElement("p")
+                let worldDev = document.createTextNode(response[0].dataset.name)
+                let paragragh3 = document.createElement("p")
+                let license = document.createTextNode(response[0].license.name)
+                let paragragh4 = document.createElement("p")
+                let coverage = document.createTextNode(response[0].geographic_coverage)
+                //world developement in tourism info
+                fetchTourism.appendChild(header3)
+                header3.appendChild(worldDev)
+
+                fetchTourism.appendChild(header)
+                header.appendChild(subject)
+                fetchTourism.appendChild(paragragh)
+                paragragh.appendChild(descriptionT)
+
+                fetchTourism.appendChild(header2)
+                header2.appendChild(headerText)
+                fetchTourism.appendChild(paragragh2)
+                paragragh2.appendChild(docUpdated)
+
+                fetchTourism.appendChild(header4)
+                header4.appendChild(headerText2)
+                fetchTourism.appendChild(paragragh3)
+                paragragh3.appendChild(license)
+
+                fetchTourism.appendChild(header5)
+                header5.appendChild(headerText3)
+                fetchTourism.appendChild(paragragh4)
+                paragragh4.appendChild(coverage)
+
+            })
+            .catch(err => console.error(err));
     </script>
 </body>
 
