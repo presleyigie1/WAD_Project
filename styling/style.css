@@ -156,7 +156,7 @@ button.refresh:hover{
     line-height: 40px;
 }
 /*Presley*/
-#route-container{
+/*#route-container{
     border: 1px solid black;
     border-radius: 20px;
     padding: 25px;
@@ -164,7 +164,7 @@ button.refresh:hover{
     position: absolute;
     top:300px;
     left: 35px;
-}
+}*/
 /*Presley*/
 #map{
     position: absolute;
