@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--Sean-->
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,14 +27,14 @@
                 <a href="Times.html">Bus Times & Flight Timetables</a>
                 <a href="Weather.html">Weather</a>
                 <a href="Tourism.html">Tourism Info</a>
-                
+
             </div>
             <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
                 <i class="fa fa-bars"></i>
             </a>
         </div>
         <h6 class="para">Click the orange part above this text to open Navbar</h6>
-        <h1>Click on the Navbar to find the pages</h1>
+        <h1 class="para">Click on the Navbar to find the pages</h1>
         <!--Sean-->
         <div style="padding-left:16px">
             <h1 class="para">Bus and Flight Times for Dublin</h3>
@@ -68,15 +69,18 @@
         </table>
         <br>
         <br>
-        <button onclick="constructTable('#table')">Display Dublin Express Times</button>
+        <button class="button3" onclick="constructTable('#table')">Display Dublin Express Times</button>
         <h1>Information on countries to visit</h1>
         <h2>Our Site also provides information about countries that you would like to travel to out of Ireland</h2>
-        <h3>You can use the searchbar to check information about a country </h3>
+        <h3>You can use the searchbar to check information about a country,the information should display below the
+            buttons </h3>
         <form id="forms">
             <input type="text" name="information" id="searchCountry">
-            <input class="button1" type="button" value="Display Country" name="Search" id="searchBtn" onclick="loadData('https://restcountries.com/v3.1/name/')" />
+            <input class="button1" type="button" value="Display Country" name="Search" id="searchBtn"
+                onclick="loadData('https://restcountries.com/v3.1/name/')" />
         </form>
-        <button class="button2">Fade Country Information</button><br><br>
+        <br>
+        <button class="button2">FadeIn/Out Country Information</button><br><br>
         <div id="info-container">
             <div id="displayData">
                 <img id="flag">
@@ -118,109 +122,112 @@
                 {
                     "Bus Stop": "Merchants Quay",
                     "Daily Times": "4:40am",
-                    "Monday-Friday Times": "7:44am",
-                    "Saturday-Sunday Times": "7:42am",
-                    "Holiday Times": "8:15 am"
+                    "Monday-Friday Times": "8:00am",
+                    "Saturday-Sunday Times": "8:15am",
+                    "Holiday Times": "8:30 am"
                 },
 
                 {
                     "Bus Stop": "Usher's Quay",
                     "Daily Times": "5:00am",
-                    "Monday-Friday Times": "7:44am",
-                    "Saturday-Sunday Times": "7:42am",
-                    "Holiday Times": "8:15 am"
+                    "Monday-Friday Times": "8:15am",
+                    "Saturday-Sunday Times": "8:20am",
+                    "Holiday Times": "9:00 am"
                 },
 
                 {
                     "Bus Stop": "Heuston Station",
                     "Daily Times": "5:20am",
-                    "Monday-Friday Times": "7:44am",
-                    "Saturday-Sunday Times": "7:42am",
-                    "Holiday Times": "8:15 am"
+                    "Monday-Friday Times": "8:30am",
+                    "Saturday-Sunday Times": "8:40am",
+                    "Holiday Times": "9:30 am"
                 },
 
                 {
                     "Bus Stop": "Arran Quay",
                     "Daily Times": "5:30am",
-                    "Monday-Friday Times": "7:44am",
-                    "Saturday-Sunday Times": "7:42am",
+                    "Monday-Friday Times": "8:45am",
+                    "Saturday-Sunday Times": "9:00am",
                     "Holiday Times": "8:15 am"
                 },
 
                 {
                     "Bus Stop": "Ormond Quay Upper",
                     "Daily Times": "6:00am",
-                    "Monday-Friday Times": "7:44am",
-                    "Saturday-Sunday Times": "7:42am",
-                    "Holiday Times": "8:15 am"
+                    "Monday-Friday Times": "9:00am",
+                    "Saturday-Sunday Times": "9:15am",
+                    "Holiday Times": "8:30 am"
                 },
 
                 {
                     "Bus Stop": "Eden Quay",
-                    "Daily Times": "4:31am",
-                    "Monday-Friday Times": "7:44am",
-                    "Saturday-Sunday Times": "7:42am",
-                    "Holiday Times": "8:15 am"
+                    "Daily Times": "6:15am",
+                    "Monday-Friday Times": "9:15am",
+                    "Saturday-Sunday Times": "9:23am",
+                    "Holiday Times": "8:45 am"
                 },
 
-             {"Bus Stop":"Custom House Quay",
-             "Daily Times":"4:31am", 
-             "Monday-Friday Times":"7:44am",
-             "Saturday-Sunday Times":"7:42am",
-             "Holiday Times":"8:15am"}
-        ];   
-        innerHTML=JSON.stringify(list[0]) + "<br>"
-                + JSON.stringify(list[1]) + "<br>"
-                + JSON.stringify(list[2]+"<br>"
-                + JSON.stringify(list[3] +"<br>")+
-                JSON.stringify(list[4]+"<br>"+
-                JSON.stringify(list[5])+"<br>"+
-                JSON.stringify(list[6]))
-                );  
-        function constructTable(selector) {
-			
-			// Getting the all column names
-			var cols = Headers(list, selector);//Calling API
-			// Traversing the JSON data
-			for (var i = 0; i < list.length; i++) {
-				var row = $('<tr/>');
-				for (var colIndex = 0; colIndex < cols.length; colIndex++)
-				{
-					var val = list[i][cols[colIndex]];	
-					// If there is any key, which is matching
-					// with the column name
-					if (val == null) val = "";
-						row.append($('<td/>').html(val));
-				}
-				// Adding each row to the table
-				$(selector).append(row);
-			}
-		}
-		function Headers(list, selector) {
-			var columns = [];
-            //rows
-			var header = $('<tr/>');
-			for (var i = 0; i < list.length; i++) {
-				var row = list[i];
-				
-				for (var k in row) {
-					if ($.inArray(k, columns) == -1) {
-						columns.push(k);
-						header.append($('<th/>').html(k));
-					}
-				}
-			}
-			$(selector).append(header);
-				return columns;
-		}	
-    </script>
-  <script>
-        function clock(){
-            var date = new Date()//date api/package
-            var hours=date.getHours()
-            var minutes=date.getMinutes()
-            var seconds=date.getSeconds()
-            var period="am"
+                {
+                    "Bus Stop": "Custom House Quay",
+                    "Daily Times": "6:31am",
+                    "Monday-Friday Times": "9:44am",
+                    "Saturday-Sunday Times": "9:42am",
+                    "Holiday Times": "9:00am"
+                }
+            ];
+            innerHTML = JSON.stringify(list[0]) + "<br>" +
+                JSON.stringify(list[1]) + "<br>" +
+                JSON.stringify(list[2] + "<br>" +
+                    JSON.stringify(list[3] + "<br>") +
+                    JSON.stringify(list[4] + "<br>" +
+                        JSON.stringify(list[5]) + "<br>" +
+                        JSON.stringify(list[6]))
+                );
+
+            function constructTable(selector) {
+
+                // Getting the all column names
+                var cols = Headers(list, selector); //Calling API
+                // Traversing the JSON data
+                for (var i = 0; i < list.length; i++) {
+                    var row = $('<tr/>');
+                    for (var colIndex = 0; colIndex < cols.length; colIndex++) {
+                        var val = list[i][cols[colIndex]];
+                        // If there is any key, which is matching
+                        // with the column name
+                        if (val == null) val = "";
+                        row.append($('<td/>').html(val));
+                    }
+                    // Adding each row to the table
+                    $(selector).append(row);
+                }
+            }
+
+            function Headers(list, selector) {
+                var columns = [];
+                //rows
+                var header = $('<tr/>');
+                for (var i = 0; i < list.length; i++) {
+                    var row = list[i];
+
+                    for (var k in row) {
+                        if ($.inArray(k, columns) == -1) {
+                            columns.push(k);
+                            header.append($('<th/>').html(k));
+                        }
+                    }
+                }
+                $(selector).append(header);
+                return columns;
+            }
+        </script>
+        <script>
+            function clock() {
+                var date = new Date() //date api/package
+                var hours = date.getHours()
+                var minutes = date.getMinutes()
+                var seconds = date.getSeconds()
+                var period = "am"
 
                 if (hours == 0) {
                     hours = 12
@@ -259,9 +266,8 @@
             })
             //fade countries out
             $("button").click(function () {
-                $("#displayData").fadeOut("slow");
+                $("#displayData").fadeToggle("slow");
             });
-            
         </script>
         <script>
             //Sean
@@ -290,22 +296,26 @@
                     const lanHead = document.createTextNode("Language:")
                     const headrNine = document.createElement("h3")
                     const popHead = document.createTextNode("Population:")
+                    const headrTen = document.createElement("h3")
+                    const regHead = document.createTextNode("Region:")
 
                     for (i = 0; i < data.length; i++) {
                         var countryName = document.createTextNode(data[i].altSpellings)
                         const paraName = document.createElement("p")
                         var capitalCity = document.createTextNode(data[i].capital)
                         const paraCapital = document.createElement("p")
-                        const contintent = document.createTextNode(data[i].region)
+                        const contintent = document.createTextNode(Object.values(data[i].continents))
                         const paraContinent = document.createElement("p")
+                        const region = document.createTextNode(data[i].region)
+                        const paraRegion = document.createElement("p")
                         const timezone = document.createTextNode(data[i].timezones)
                         const paraZone = document.createElement("p")
                         const languages = document.createTextNode(Object.values(data[i].languages))
                         const paraLan = document.createElement("p")
                         const paraCurrency = document.createElement("p")
-                        const currency = document.createTextNode(data[i].currencies[i])
+                        const currency = document.createTextNode(Object.values(data[i].currencies))
                         const paraFlag = document.createElement("img")
-                        flag.src = data[i].flags.png
+                        let flagInfo = data[i].flags.png
                         const paraPopulation = document.createElement("p")
                         const population = document.createTextNode(data[i].population)
                         //Name of the country
@@ -333,22 +343,28 @@
                         headrEight.appendChild(lanHead)
                         displayText.appendChild(paraLan)
                         paraLan.appendChild(languages)
+                        /*
                         //currencies
                         displayText.appendChild(headrFive)
                         headrFive.appendChild(currencyHead)
                         displayText.appendChild(paraCurrency)
                         paraCurrency.appendChild(currency)
+                        */
                         //Population
                         displayText.appendChild(headrNine)
                         headrNine.appendChild(popHead)
                         displayText.appendChild(paraPopulation)
                         paraPopulation.appendChild(population)
+                        //region
+                        displayText.appendChild(headrTen)
+                        headrTen.appendChild(regHead)
+                        displayText.appendChild(paraRegion)
+                        paraRegion.appendChild(region)
+                        /*
                         //Flag
-                        displayText.appendChild(headrSix)
-                        headrSix.appendChild(flagHead)
-                        displayText.appendChild(paraFlag)
-                        paraFlag.appendChild(flag)
-
+                        paraFlag.data[i].flags.png
+                        displayText.append(paraFlag)
+                        */
                     }
                 }
                 //document.getElementById("myData").innerHTML
